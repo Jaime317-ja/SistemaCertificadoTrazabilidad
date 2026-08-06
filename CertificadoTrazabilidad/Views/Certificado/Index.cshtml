@@ -1,0 +1,112 @@
+﻿@model List<CertificadoTrazabilidad.Models.Documento>
+
+@{
+    ViewData["Title"] = "Certificado de Trazabilidad";
+}
+
+@if (TempData["Mensaje"] != null)
+{
+    <div class="alert alert-@TempData["Tipo"] alert-dismissible fade show" role="alert">
+        @TempData["Mensaje"]
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    </div>
+}
+
+<div class="container mt-4">
+
+    ```
+    <div class="card shadow-sm">
+
+        <div class="card-header bg-primary text-white">
+            <h4 class="mb-0">Certificado de Trazabilidad</h4>
+        </div>
+        <!-- 
+        @if (ViewBag.Mensaje != null)
+        {
+            <div class="alert alert-info">
+                @ViewBag.Mensaje
+            </div>
+        }
+        -->
+        <div class="card-body">
+
+            <form method="post">
+
+                <div class="row mb-3">
+
+                    <div class="col-md-6">
+                        <label class="form-label">Fecha inicial</label>
+                        <input type="date" id="fechaini" name="fechaini" class="form-control" />
+                    </div>
+
+                    <div class="col-md-6">
+                        <label class="form-label">Fecha final</label>
+                        <input type="date" id="fechafin" name="fechafin" class="form-control" />
+                    </div>
+
+                </div>
+
+                <div class="text-center mb-4">
+                    <button type="submit" class="btn btn-primary px-4">
+                        Buscar
+                    </button>
+                </div>
+
+            </form>
+
+            <h5 class="mb-3">Documentos encontrados</h5>
+
+            <form asp-action="GenerarPdf" method="post" target="_blank">
+                <div class="table-responsive">
+
+                    <table class="table table-striped table-bordered align-middle">
+
+                        <thead class="table-primary">
+
+                            <tr>
+                                <th style="width: 60px;">Sel.</th>
+                                <th>Tipo Documento</th>
+                                <th>Número</th>
+                                <th>Fecha</th>
+                                <th>Prefijo</th>
+                                <th>CUFE</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+                            @foreach (var doc in Model)
+                            {
+                                <tr>
+                                    <td class="text-center">
+                                        <input type="radio" name="docid" value="@doc.DocId" />
+                                    </td>
+                                    <td>@doc.TipoDocumento</td>
+                                    <td>@doc.Numero</td>
+                                    <td>@doc.FechaDocumento.ToString("dd/MM/yyyy")</td>
+                                    <td>@doc.Prefijo</td>
+                                    <td>@doc.Cufe</td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                @if (Model != null && Model.Any())
+                {
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-success px-4">
+                            Generar Certificado
+                        </button>
+                    </div>
+                }
+            </form>      
+       
+        </div>
+
+    </div>
+    ```
+
+</div>

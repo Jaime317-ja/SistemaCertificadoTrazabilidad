@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Certificado de Trazabilidad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 12px;
+            margin: 40px;
+        }
+
+        h1, h2 {
+            text-align: center;
+        }
+
+        .section {
+            margin-top: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            table-layout: fixed;
+        }
+
+        table, th, td {
+            border: 1px solid #000;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 6px;
+            text-align: left;
+            word-break: break-all;
+            overflow-wrap: break-word;
+        }
+
+        .firma {
+            margin-top: 20px;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        p {
+            margin: 4px 0;
+        }
+
+        .no-border {
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <h2>Certificación de trazabilidad</h2>
+    <p>Señores:</p>
+    <p><strong>A QUIEN INTERESE</strong></p>
+    <p>Ciudad</p>
+
+    <p>
+        Ref. Certificación de trazabilidad de envío del comprobante N.º
+        <strong>#prefijo#-#numero#</strong>
+    </p>
+
+    <p>
+        De acuerdo con la solicitud realizada, se relaciona la trazabilidad del comprobante emitido por la empresa
+        <strong>#empresa_emisor#</strong> identificada con NIT <strong>#nit_emisor#</strong>,
+        para:
+    </p>
+
+    <p>
+        Razón social: <strong>#razon_social_receptor#</strong><br>
+        NIT: <strong>#nit_cliente#</strong>
+    </p>
+
+    <p>
+        Certifica que el documento ha sido emitido en cumplimiento de los requisitos establecidos.
+    </p>
+
+    <div class="section">
+        <h3>Información del comprobante</h3>
+
+        <table>
+            <tr>
+                <th>Nro.Transacción</th>
+                <th>NIT</th>
+                <th>Prefijo</th>
+                <th>Tipo</th>
+                <th>Nro.Comprobante</th>
+            </tr>
+            <tr>
+                <td>#numero#</td>
+                <td>#nit_cliente#</td>
+                <td>#prefijo#</td>
+                <td>Factura</td>
+                <td>#numero#</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h3>Información del documento electrónico</h3>
+        <table>
+            <tr>
+                <th>Tipo Doc.</th>
+                <th>Nro.Comprob.</th>
+                <th>Razón Social Emisor</th>
+                <th>Nit emisor</th>
+                <th>Razón Social Receptor</th>
+            </tr>
+            <tr>
+                <td>#tipo_documento#</td>
+                <td>#numero#</td>
+                <td>#empresa_emisor#</td>
+                <td>#nit_emisor#</td>
+                <td>#razon_social_receptor#</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <h3>Información del estado del documento en la DIAN</h3>
+        <table>
+            <tr>
+                <th>CUFE</th>
+                <th>Registro DIAN</th>
+                <th>Razón Social Emisor</th>
+                <th>Nit emisor</th>
+                <th>Estado DIAN</th>
+            </tr>
+            <tr>
+                <td>#cufe#</td>
+                <td><a href="https://catalogo-vpfe.dian.gov.co/User/SearchDocument" target="_blank">Ver en DIAN</a></td>
+                <td>#empresa_emisor#</td>
+                <td>#nit_emisor#</td>
+                <td>#estado_dian#</td>
+            </tr>
+        </table>
+    </div>
+    <div class="section">
+        <h3>Información del envío del Documento electrónico</h3>
+
+        <table class="table-top">
+            <tr>
+                <th>Nro.Doc</th>
+                <th>Destinatario</th>
+                <th>Correo Electrónico</th>
+                <th>Fecha envío</th>
+            </tr>
+            <tr>
+                <td>#numero#</td>
+                <td>#destinatario#</td>
+                <td>#correo_destino#</td>
+                <td>#fecha_envio#</td>
+            </tr>
+        </table>
+
+        <!-- TABLA INFERIOR -->
+        <table class="table-bottom">
+            <tr>
+                <th>Asunto</th>
+                <th>Estado del envío</th>
+            </tr>
+            <tr>
+                <td>#asunto#</td>
+                <td>#estado_envio#</td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="firma">
+        <p>Cordialmente,</p>
+
+        <p><strong>#razon_social_receptor#</strong></p>
+        <p>Representante Legal</p>
+        <p>NIT #nit_cliente#</p>
+    </div>
+</body>
+</html>
